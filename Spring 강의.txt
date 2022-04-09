@@ -124,7 +124,9 @@ Web Application에서 관리되는 영역으로써 Spring Boot Framework에서 C
 Java기반의 단위테스트를 위한 프레임워크
 Annotation 기반으로 테스트를 지원하며, Assert를 통하여 (예상, 실제)를 통해 검증
 
-
+- Jacoco
+Java코드의 코드 버러리지를 체크하는 라이브러리
+결과를 html, xml, csv로 확인 가능
 
 
 
