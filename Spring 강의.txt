@@ -184,7 +184,7 @@ Spring Data JPA : 자주 사용하는 기술들을 다시 스프링 프레임워
 2. PrePostAuthorize
 3. AOP
 
-
+- 필터와 필터 사이에 대리자를 두어 어떤 시큐리티를 적용할지 선택
 
 
 
