@@ -184,10 +184,22 @@ Spring Data JPA : 자주 사용하는 기술들을 다시 스프링 프레임워
 2. PrePostAuthorize
 3. AOP
 
-- 필터와 필터 사이에 대리자를 두어 어떤 시큐리티를 적용할지 선택
-
-
-
+- 필터와 필터 사이에 Proxy(대리자)를 두어 어떤 시큐리티를 적용할지 선택
+- 인증 토큰(Authentication)을 제공하는 필터들
+1. UsernamePasswordAuthenticationFilter : 폼 로그인 -> UsernamePasswordAuthenticationToken
+2. RememberMeAuthenticationFilter : remember-me 쿠키 로그인 -> RememberMeAuthenticationToken
+3. AnonymousAuthenticationFilter : 로그인하지 않았다는 것을 인증함 -> AnonymousAuthenticationToken
+4. SecurityContextPersistenceFilter : 기존 로그인을 유지함(기본적으로 session 을 이용함)
+5. BearerTokenAuthenticationFilter : JWT 로그인 세션을 사용하지 않은 경우 
+	토큰에 많은 정보를 담아야하기 때문에 사용
+6. BasicAuthenticationFilter : ajax 로그인 -> UsernamePasswordAuthenticationToken, 
+	아이디와 비밀번호를 Base64로 인코딩하여 보내주면 필터에서 로그인 인증을 하고 바로 요청하는 페이지로 보내줌 
+	세션을 사용하는 경우에만 사용
+	Ex) 로그인 페이지가 따로 필요없는 모바일에서 사용
+7. OAuth2LoginAuthenticationFilter : 소셜 로그인 -> OAuth2LoginAuthenticationToken, OAuth2AuthenticationToken
+8. OpenIDAuthenticationFilter : OpenID 로그인
+9. Saml2WebSsoAuthenticationFilter : SAML2 로그인
+10. ... 기타
 
 
 
