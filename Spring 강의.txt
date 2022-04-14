@@ -297,7 +297,13 @@ DataSource (DB 설정) -> EntityManagerFactory (JPA 엔티티 관리) -> Platfor
 ------------------------------------ @Transactional ------------------------------------
 스프링이 어노테이션 기반 트랜잭션 관리 기능을 제공
  
-
+------------------------------------ UsernamePasswordAuthenticationFiler ------------------------------------
+Form 데이터로 username, password 기반의 인증을 담당하고 있는 필터
+UsernamePasswordAuthenticationFilter : username, password 인증 필터)
+ProviderManager(AuthenticationManager) : 인증 정보 제공 관리자
+AbstractUsreDetailsAuthenticationProvider : 인증 정보 제공 (계정의 상태나 패스워드 일치 여부등을 파악)
+DaoAuthenticationProvider : 유저 정보 제공
+UserDetailsService : 유저 정보 제공하는 Service
 
 
 
