@@ -152,6 +152,26 @@ Job 이름과 JobParameter 값을 기준으로 생성 여부, 재실행, 재실�
 하나의 Job은 항상 하나의 같은 파리미터로 새롭게 실행 불가
 ExecutionContext : Job과 Step의 Context를 관리 -> 데이터를 새로 공유 가능
 
+스프링 배치에서 전 처리, 후처리를 하는 다양한 종류의 Listener 존재
+	- interface 구현
+	- @Annotation 구현
+Job 실행 전과 후에 실행할 수 있는 JobExecutionListener
+Step 실행 전과 후에 실행할 수 있는 StepExcutionListener -> Step에 관련된 모든 Listener는 StepListener를 상속
+Skip : Step의 예외 처리 방법 중 하나
+step 수행 중 발생한 특정 Exception과 에러 횟수 설정으로 예외처리 설정
+	- skip(NotFounnameException.class), skipLimit(3)으로 설정된 경우
+	- NotFounnameException 발생 3번까지는 에러를 skip
+	- 단 에러가 발생하기 전까지 데이터는 모두 처리된 상태로 남음
+
+step 수행 중 간헐적으로 Exception 발생 시 재시도(retry) 설정 : DB Deadlock, Network timeout 등
+Async Step은 ItemProcessor와 ItemWriter 기준으로 비동기 처리
+Muti-Thread Step은 chunk 단위로 멀티 스레딩 처리
+Thread-Safe한 ItemReader 필수
+하나의 Master 기준으로 여러 Slave Step을 생성해 Step 기준으로 Multi-Thread 처리
+item이 40000개, Slave Stepdl 8개 -> 하나의 Slave Step 당 5000건씩 나눠서 
+
+
+
 
 ------------------------------------ Interceptor ------------------------------------
 Filter와 매우 유사한 형태로 존재, 차이점은 Spring Context에 등록
