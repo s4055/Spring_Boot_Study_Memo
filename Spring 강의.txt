@@ -169,8 +169,9 @@ Muti-Thread Step은 chunk 단위로 멀티 스레딩 처리
 Thread-Safe한 ItemReader 필수
 하나의 Master 기준으로 여러 Slave Step을 생성해 Step 기준으로 Multi-Thread 처리
 item이 40000개, Slave Stepdl 8개 -> 하나의 Slave Step 당 5000건씩 나눠서 
-
-
+- Parallel Step
+n개의 Thread가 Step 단위로 동시 실행
+Multi-Thread Step은 chunk 단위로 동시 실행했다면, Paralled Step은 step 단위로 동시 실행
 
 
 ------------------------------------ Interceptor ------------------------------------
