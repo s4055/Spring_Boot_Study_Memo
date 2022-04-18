@@ -404,6 +404,35 @@ JWT 토큰을 만들 때 헤더에 kid를 포함하여 제공하고 서버에서
 
 외부망 - 라우터(Trust zone : 회사 내부 컴퓨터들, 개발/테스트 서버들) - 스위치 - L7스위치(DMZ zone : 개발자가 챙겨야하는 영역, 리얼/운영 서버들, 베타/스테이지 서버들)
 
+- Spring Cloud Gateway
+client -> gateway handler mapping -> gateway web handler -> filter chain -> dest
+
+- Eureka server
+eureka server가 api gateway를 관리
+
+- 쓰기 요청 분산
+동영상 업로드 -> upload server
+이미지 조회, 게시글 조회 -> api server
+==> 계속해서 확인하는 Pulling -> 비효율적 -> 해결 방안 : rabbitmq, kafka
+
+- Client side Load Balancer : Ribbon
+- Declarative REST Client : Feign
+
+- resilience4j(회복탄력성)를 활용한 circuit breaker 패턴 적용 : 트래픽 제어
+1. 격벽 패턴 : 여러 시스템 중 시스템A에서 문제가 발생했다면 시스템A를 막는 방법
+2. 회로 차단기 패턴
+
+- Google Cloud = AWS
+
+- Spring Config Server
+
+
+
+
+
+
+
+
 
 
 
