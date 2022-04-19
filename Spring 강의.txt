@@ -424,12 +424,15 @@ eureka server가 api gateway를 관리
 
 - Google Cloud = AWS
 
-- Spring Config Server
+- Spring Config Server : 설정들을 모아놓은 서버
 
+- Speing Admin : 모듈별 상태 관리 
+1. admin server와 연동할 admin Client 추가
+2. eureka Client 등록을 통한 자동연동
 
+- MDC : 분산환경에서 로깅
 
-
-
+- Sleuth, Zipkin : 스프링에서 제공하는 로깅 관련 플랫폼
 
 
 
